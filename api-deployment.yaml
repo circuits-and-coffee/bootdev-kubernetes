@@ -22,6 +22,11 @@ spec:
         - image: bootdotdev/synergychat-api:latest
           name: synergychat-api
           env:
+            - name: CRAWLER_BASE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: synergychat-api-configmap
+                  key: CRAWLER_BASE_URL
             - name: API_PORT
               valueFrom:
                 configMapKeyRef:
